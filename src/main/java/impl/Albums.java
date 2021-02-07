@@ -27,7 +27,7 @@ public class Albums {
         while (it.hasNext()) {
             Map.Entry pair = (Map.Entry)it.next();
             str += "ISRC: " + pair.getKey() + ", Title: " + ((Album)pair.getValue()).getTitle() + " | ";
-            it.remove(); // avoids a ConcurrentModificationException
+
         }
         return str;
     }
