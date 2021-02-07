@@ -27,4 +27,7 @@ public class Albums {
         }
         return str;
     }
+    public boolean albumExists(String ISRC){
+        return albums.containsKey(ISRC);
+    }
 }
