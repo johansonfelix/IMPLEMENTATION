@@ -8,6 +8,10 @@ import java.util.Map;
 
 public class Albums {
     HashMap<String, Album> albums = new HashMap<>();
+
+    public Albums(){ }
+
+
     public void addAlbum(Album album){
         albums.put(album.getISRC(), album);
     }
