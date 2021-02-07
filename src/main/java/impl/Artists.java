@@ -30,6 +30,6 @@ public class Artists {
         return str;
     }
     
-    public void tes(){}
+
 
 }
