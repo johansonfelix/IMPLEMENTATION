@@ -2,12 +2,13 @@ package impl;
 
 import pojo.Artist;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-public class Artists {
+public class Artists implements Serializable {
     HashMap<String, Artist> artists = new HashMap<>();
     public void addArtist(Artist artist){
         artists.put(artist.getNickName(), artist);
@@ -24,7 +25,6 @@ public class Artists {
         while (it.hasNext()) {
             Map.Entry pair = (Map.Entry)it.next();
             str += "Nickname: " + pair.getKey() + ", Full name: " + ((Artist)pair.getValue()).getFirstName()+ " " + ((Artist)pair.getValue()).getLastName() + " | ";
-            it.remove(); // avoids a ConcurrentModificationException
 
         }
         return str;

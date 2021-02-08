@@ -2,11 +2,12 @@ package impl;
 
 import pojo.Album;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-public class Albums {
+public class Albums implements Serializable {
     HashMap<String, Album> albums = new HashMap<>();
 
     public Albums(){ }
