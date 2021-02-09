@@ -16,20 +16,25 @@ public class Artists implements Serializable {
     public Artist getArtist(String nickname){
         return artists.get(nickname);
     }
+    public boolean artistExists(String nickname){
+        return artists.get(nickname) != null;
+    }
     public void deleteArtist(String nickname){
         artists.remove(nickname);
     }
     public String toString(){
-        String str = "";
-        Iterator it = artists.entrySet().iterator();
-        while (it.hasNext()) {
-            Map.Entry pair = (Map.Entry)it.next();
-            str += "Nickname: " + pair.getKey() + ", Full name: " + ((Artist)pair.getValue()).getFirstName()+ " " + ((Artist)pair.getValue()).getLastName() + " | ";
-
+        String str = null;
+        if(artists.size() == 0){
+            str = "There are no artists listed.";
+        }
+        else {
+            str = "";
+            Iterator it = artists.entrySet().iterator();
+            while (it.hasNext()) {
+                Map.Entry pair = (Map.Entry) it.next();
+                str += "Nickname: " + pair.getKey() + ", Full name: " + ((Artist) pair.getValue()).getFirstName() + " " + ((Artist) pair.getValue()).getLastName() + "\n";
+            }
         }
         return str;
     }
-    
-
-
 }

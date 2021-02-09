@@ -12,7 +12,6 @@ public class Albums implements Serializable {
 
     public Albums(){ }
 
-
     public void addAlbum(Album album){
         albums.put(album.getISRC(), album);
     }
@@ -23,12 +22,17 @@ public class Albums implements Serializable {
         return albums.get(ISRC);
     }
     public String toString(){
-        String str = "";
-        Iterator it = albums.entrySet().iterator();
-        while (it.hasNext()) {
-            Map.Entry pair = (Map.Entry)it.next();
-            str += "ISRC: " + pair.getKey() + ", Title: " + ((Album)pair.getValue()).getTitle() + " | ";
-
+        String str = null;
+        if(albums.size() == 0){
+            str = "There are no albums listed.";
+        }
+        else {
+            str = "";
+            Iterator it = albums.entrySet().iterator();
+            while (it.hasNext()) {
+                Map.Entry pair = (Map.Entry) it.next();
+                str += "ISRC: " + pair.getKey() + ", Title: " + ((Album) pair.getValue()).getTitle() + "\n";
+            }
         }
         return str;
     }
